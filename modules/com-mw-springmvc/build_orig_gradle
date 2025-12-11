@@ -1,0 +1,89 @@
+String springVersion = "6.2.8"
+String springSecurityVersion = "6.2.8"
+
+buildscript {
+	repositories {
+		maven {
+			url "https://repository-cdn.liferay.com/nexus/content/groups/public"
+		}
+	}
+
+	dependencies {
+		classpath group: "com.liferay", name: "com.liferay.gradle.plugins.css.builder", version: "5.0.9"
+	}
+}
+
+apply plugin: "com.liferay.css.builder"
+
+dependencies {
+	implementation group: "com.liferay.portletmvc4spring", name: "com.liferay.portletmvc4spring.framework", version: "5.3.2"
+	implementation group: "com.liferay.portletmvc4spring", name: "com.liferay.portletmvc4spring.security", version: "5.3.2"
+	implementation(group: "com.liferay", name: "org.hibernate.validator", version: "6.2.5.Final.JAKARTA-LIFERAY-PATCHED-1") {
+		exclude group: "jakarta.validation", module: "validation-api"
+	}
+	implementation (group: "org.springframework", name: "spring-aop") {
+		version {
+			strictly springVersion
+		}
+	}
+	implementation (group: "org.springframework", name: "spring-beans") {
+		version {
+			strictly springVersion
+		}
+	}
+	implementation (group: "org.springframework", name: "spring-context") {
+		version {
+			strictly springVersion
+		}
+	}
+	implementation (group: "org.springframework", name: "spring-core") {
+		version {
+			strictly springVersion
+		}
+	}
+	implementation (group: "org.springframework", name: "spring-expression") {
+		version {
+			strictly springVersion
+		}
+	}
+	implementation (group: "org.springframework", name: "spring-jcl") {
+		version {
+			strictly springVersion
+		}
+	}
+	implementation (group: "org.springframework", name: "spring-web") {
+		version {
+			strictly springVersion
+		}
+	}
+	implementation (group: "org.springframework", name: "spring-webmvc") {
+		version {
+			strictly springVersion
+		}
+	}
+	implementation (group: "org.springframework.security", name: "spring-security-config") {
+		version {
+			strictly springSecurityVersion
+		}
+	}
+	implementation (group: "org.springframework.security", name: "spring-security-core") {
+		version {
+			strictly springSecurityVersion
+		}
+	}
+	implementation (group: "org.springframework.security", name: "spring-security-web") {
+		version {
+			strictly springSecurityVersion
+		}
+	}
+	compileOnly group: "com.liferay.portal", name: "com.liferay.portal.kernel"
+	compileOnly group: "com.liferay.jakarta.portlet", name: "com.liferay.jakarta.portlet-api", version: "4.0.0"
+	compileOnly group: "jakarta.servlet", name: "jakarta.servlet-api", version: "6.0.0"
+	compileOnly group: "jakarta.validation", name: "jakarta.validation-api", version: "3.1.0"
+	compileOnly group: "org.osgi", name: "org.osgi.service.component.annotations"
+	compileOnly group: "org.slf4j", name: "slf4j-api"
+
+	cssBuilder group: "com.liferay", name: "com.liferay.css.builder", version: "3.1.4"
+
+	portalCommonCSS group: "com.liferay", name: "com.liferay.frontend.css.common"
+}
