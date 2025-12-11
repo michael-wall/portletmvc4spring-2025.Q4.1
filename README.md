@@ -12,7 +12,7 @@
 ## Steps Followed to Setup the Module ##
 - Create a new Liferay Workspace using dxp-2025.q4.1
 ```
-blade init -v dxp-2025.q3.7 workspace
+blade init -v dxp-2025.q4.1 workspace
 ```
 - Create a new module (from within the workspace folder) using --framework portletmvc4spring
 ```
